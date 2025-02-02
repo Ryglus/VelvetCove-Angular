@@ -1,0 +1,157 @@
+/* 🌟 Spacer when `takeSpace` is true */
+.spacer {
+  height: 50px;
+}
+
+/* 🌟 Header Section */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 50;
+  transition: all 0.3s ease-in-out;
+}
+
+.header.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header:not(.scrolled) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* 🌟 Header Inner Content */
+.header-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* 🌟 Logo */
+.logo img {
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🌟 Navigation */
+.nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+    gap: 24px;
+  }
+}
+
+.nav a {
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav a:hover {
+  transform: scale(1.05);
+}
+
+/* 🌟 Icons & Buttons */
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icons a,
+.icons button {
+  transition: transform 0.2s ease-in-out;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icons a:hover,
+.icons button:hover {
+  transform: scale(1.1);
+}
+
+/* 🌟 Cart Icon */
+.cart-badge {
+  background-color: #dc2626;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 14px;
+}
+
+/* 🌟 Drawer (Mobile Menu) */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 256px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  display: none;
+}
+
+.drawer.open {
+  display: block;
+}
+
+.drawer nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawer button {
+  text-align: right;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 🌟 Main Content */
+.main {
+  flex: 1;
+}
+
+/* 🌟 Footer */
+.footer {
+  margin-top: auto;
+  background-color: #1f2937;
+  color: white;
+  padding: 16px 0;
+}
+
+.footer-container {
+  max-width: 1480px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+}
+
+.footer img {
+  height: 70px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: white;
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer-links a:hover {
+  transform: scale(1.05);
+}

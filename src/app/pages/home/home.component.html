@@ -1,0 +1,22 @@
+<app-layout [takeSpace]="false">
+  <app-fs-carousel></app-fs-carousel>
+  <app-svg-page-bg>
+    <app-product-showcase-button-group></app-product-showcase-button-group>
+    <app-product-recommended-section
+      title="Recommended for men"
+      [category]="'men\'s clothing'">
+    </app-product-recommended-section>
+
+    <app-product-recommended-section
+      title="Recommended for women"
+      size="lg"
+      [category]="'women\'s clothing'">
+    </app-product-recommended-section>
+
+    <app-product-recommended-section
+      title="Some fire accessories"
+      size="sm"
+      [category]="'jewelery'">
+    </app-product-recommended-section>
+  </app-svg-page-bg>
+</app-layout>

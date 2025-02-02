@@ -1,0 +1,8 @@
+<div #buttonGroup class="button-group">
+  <a *ngFor="let label of categories$ | async; let i = index"
+     [routerLink]="'/products/' + label"
+     class="button"
+     [style.transitionDelay]="(700 + i * 500) + 'ms'">
+    {{ label.toUpperCase() }}
+  </a>
+</div>

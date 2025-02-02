@@ -1,0 +1,87 @@
+.product-card {
+  position: relative;
+  background: #2b2033;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+/* Image */
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Badge */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e91e63;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* Title & Price */
+.info {
+  text-align: center;
+  padding: 10px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  width: 100%;
+  padding: 10px;
+  background: #72629d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-to-cart:hover {
+  background: #5a4a85;
+}
+
+/* Cart Quantity Indicator */
+.cart-quantity {
+  background: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* Product Link (Invisible Clickable Area) */
+.product-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

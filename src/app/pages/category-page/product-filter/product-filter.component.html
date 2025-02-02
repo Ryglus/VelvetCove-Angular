@@ -1,0 +1,50 @@
+<div class="filter-container">
+  <details open>
+    <summary>Filters</summary>
+
+    <label>
+      Search by name
+      <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="updateName()" placeholder="Enter product name">
+    </label>
+
+    <hr>
+
+    <label>
+      Category
+      <select [(ngModel)]="categoryFilter" (ngModelChange)="categoryChange.emit($event)">
+        <option value="">All Categories</option>
+        <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+      </select>
+    </label>
+
+    <hr>
+
+    <label>
+      Price Range
+      <input type="range" [(ngModel)]="localPriceRange" min="0" max="1000" step="10" (change)="updatePriceRange()">
+      <span>${{ localPriceRange()[0] }} - ${{ localPriceRange()[1] }}</span>
+    </label>
+
+    <hr>
+
+    <label>
+      Minimum Rating
+      <input type="number" [(ngModel)]="minRating" (ngModelChange)="minRatingChange.emit($event)" min="1" max="5">
+    </label>
+
+    <hr>
+
+    <div class="filter-badges">
+      <span *ngIf="nameFilter" class="badge" (click)="handleClearFilter('name')">Name: {{ nameFilter }} &times;</span>
+      <span *ngIf="categoryFilter" class="badge" (click)="handleClearFilter('category')">Category: {{ categoryFilter }} &times;</span>
+      <span *ngIf="minPrice !== undefined && maxPrice !== undefined" class="badge" (click)="handleClearFilter('price')">
+        Price: ${{ minPrice }} - ${{ maxPrice }} &times;
+      </span>
+      <span *ngIf="minRating" class="badge" (click)="handleClearFilter('rating')">Rating: {{ minRating }}+ &times;</span>
+    </div>
+
+    <hr>
+
+    <button (click)="clearFilters.emit()" class="clear-filters">Clear All Filters</button>
+  </details>
+</div>

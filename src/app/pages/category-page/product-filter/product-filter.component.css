@@ -1,0 +1,54 @@
+.filter-container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+}
+
+details summary {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 6px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filter-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.badge {
+  background: #4a4066;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clear-filters {
+  width: 100%;
+  padding: 8px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clear-filters:hover {
+  background: #c82333;
+}

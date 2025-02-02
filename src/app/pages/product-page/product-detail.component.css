@@ -1,0 +1,36 @@
+.container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 20px;
+}
+
+.grid {
+  display: flex;
+  gap: 20px;
+}
+
+.carousel {
+  width: 50%;
+}
+
+.details {
+  width: 50%;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  padding: 8px 12px;
+  border: none;
+  background: #84629d;
+  color: white;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #ccc;
+}

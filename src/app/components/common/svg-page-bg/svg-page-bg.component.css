@@ -1,0 +1,26 @@
+.svg-page-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-top {
+  transform: rotate(180deg);
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave-bottom {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.svg-content {
+  position: relative;
+  z-index: 1;
+}
