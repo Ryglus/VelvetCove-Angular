@@ -1,27 +1,27 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, computed, inject, signal, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-layout',
-  standalone: true, // ✅ This makes it standalone
-  imports: [CommonModule, RouterModule], // ✅ Import necessary modules
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './app-layout.component.html',
-  styleUrls: ['./app-layout.component.css',]
+  styleUrls: ['./app-layout.component.css'],
 })
 export class AppLayoutComponent {
+  private cartService = inject(CartService);
+
   token: any;
-  uniqueItemsCount: number = 0;
   drawerOpened: any;
-  isScrolled =  false;
+  isScrolled = false;
 
   @Input() takeSpace = true;
 
-  toggleDrawer() {
+  uniqueItemsCount = computed(() => this.cartService.totalItems());
 
-  }
+  toggleDrawer() {}
 
-  handleLogout() {
-
-  }
+  handleLogout() {}
 }

@@ -1,0 +1,60 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.button.primary {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.button.gray {
+  background-color: #ccc;
+}
+
+.button.danger {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.info-list p {
+  font-size: 18px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+hr {
+  margin: 20px 0;
+}

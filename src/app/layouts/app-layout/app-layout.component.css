@@ -1,9 +1,7 @@
-/* 🌟 Spacer when `takeSpace` is true */
 .spacer {
   height: 50px;
 }
 
-/* 🌟 Header Section */
 .header {
   width: 100%;
   position: fixed;
@@ -21,7 +19,6 @@
   background: rgba(0, 0, 0, 0.1);
 }
 
-/* 🌟 Header Inner Content */
 .header-container {
   max-width: 1480px;
   margin: 0 auto;
@@ -31,14 +28,13 @@
   padding: 0 24px;
 }
 
-/* 🌟 Logo */
 .logo img {
   transition: all 0.3s ease-in-out;
 }
 
-/* 🌟 Navigation */
 .nav {
   display: none;
+  color: white;
 }
 
 @media (min-width: 1024px) {
@@ -56,7 +52,6 @@
   transform: scale(1.05);
 }
 
-/* 🌟 Icons & Buttons */
 .icons {
   display: flex;
   align-items: center;
@@ -76,7 +71,6 @@
   transform: scale(1.1);
 }
 
-/* 🌟 Cart Icon */
 .cart-badge {
   background-color: #dc2626;
   color: white;
@@ -85,7 +79,6 @@
   font-size: 14px;
 }
 
-/* 🌟 Drawer (Mobile Menu) */
 .drawer {
   position: fixed;
   top: 0;
@@ -115,12 +108,10 @@
   cursor: pointer;
 }
 
-/* 🌟 Main Content */
 .main {
   flex: 1;
 }
 
-/* 🌟 Footer */
 .footer {
   margin-top: auto;
   background-color: #1f2937;

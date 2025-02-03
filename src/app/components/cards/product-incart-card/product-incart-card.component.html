@@ -1,0 +1,29 @@
+<div class="product-row">
+  <div class="product-image-container">
+    <img
+      [src]="product.image"
+      [alt]="product.title"
+      class="product-image"
+    />
+  </div>
+
+  <div class="product-details">
+
+    <div class="product-info">
+      <h2 class="product-title">{{ product.title }}</h2>
+      <p class="product-price">Unit Price: ${{ product.price.toFixed(2) }}</p>
+    </div>
+
+    <div class="product-quantity" *ngIf="isEditable">
+      <button class="quantity-btn" (click)="handleQuantityChange(quantity - 1); $event.stopPropagation()" [disabled]="quantity <= 1">−</button>
+      <input type="number" min="1" [(ngModel)]="quantity" (change)="handleQuantityChange(quantity); $event.stopPropagation()" class="quantity-input" />
+      <button class="quantity-btn" (click)="handleQuantityChange(quantity + 1); $event.stopPropagation()">+</button>
+    </div>
+
+    <div class="product-total-price">${{ totalPrice }}</div>
+
+    <button *ngIf="isEditable" (click)="removeItem(); $event.stopPropagation()" class="remove-btn">🗑️</button>
+  </div>
+
+  <a [routerLink]="['/products', product.category, product.id]" class="product-overlay"></a>
+</div>

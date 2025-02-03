@@ -1,22 +1,18 @@
 <div class="product-card">
-  <!-- Image Container -->
   <div class="image-container" [style.height]="getHeight()">
     <span class="badge">{{ product.category }}</span>
     <img [src]="product.image" [alt]="product.title" loading="lazy" class="product-image" />
   </div>
 
-  <!-- Title & Price -->
   <div class="info">
     <h3 class="title">{{ product.title }}</h3>
     <p class="price">${{ product.price }}</p>
   </div>
 
-  <!-- Add to Cart Button -->
   <button class="add-to-cart" (click)="addToCart()">
     Add to cart
     <span *ngIf="itemQuantity > 0" class="cart-quantity">{{ itemQuantity }}</span>
   </button>
 
-  <!-- Product Link -->
   <a [routerLink]="['/products', product.category, product.id]" class="product-link"></a>
 </div>

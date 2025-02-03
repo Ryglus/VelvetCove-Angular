@@ -2,8 +2,11 @@
   max-width: 1280px;
   margin: auto;
   padding: 20px;
-}
 
+}
+.breadcrumbs {
+  color: #ccc;
+}
 .grid {
   display: flex;
   gap: 20px;
@@ -16,7 +19,9 @@
 .details {
   width: 50%;
 }
-
+.details p,h1, .price, .rating {
+  color: white;
+}
 .quantity {
   display: flex;
   align-items: center;

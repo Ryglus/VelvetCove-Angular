@@ -18,19 +18,15 @@ import {AppLayoutComponent} from "../../layouts/app-layout/app-layout.component"
   styleUrls: ['./category-page.component.css']
 })
 export class CategoryPageComponent implements OnInit {
-  // ✅ Inject Services
   productService = inject(ProductService);
   route = inject(ActivatedRoute);
   router = inject(Router);
 
-  // ✅ Convert Observables to Signals Properly
   products = toSignal(this.productService.fetchProducts(), { initialValue: [] });
   categories = toSignal(this.productService.fetchCategories(), { initialValue: [] });
 
-  // ✅ Store Selected Category as a Signal
   category = signal<string | null>(null);
 
-  // ✅ Query Parameters as a Signal
   query = signal({
     name: '',
     minPrice: null as number | null,
@@ -41,10 +37,9 @@ export class CategoryPageComponent implements OnInit {
     productsPerPage: 6,
   });
 
-  // ✅ Computed Signal for Filtered Products
   filteredProducts = computed(() => {
     const allProducts = this.products();
-    const queryValue = this.query(); // ✅ Correct way to access signal value
+    const queryValue = this.query();
     const { name, minPrice, maxPrice, minRating, categoryFilter } = queryValue;
 
     return allProducts.filter(product => {
@@ -58,22 +53,19 @@ export class CategoryPageComponent implements OnInit {
     });
   });
 
-  // ✅ Computed Signal for Paginated Products
   paginatedProducts = computed(() => {
     const products = this.filteredProducts();
-    const queryValue = this.query(); // ✅ Correct way to access signal value
+    const queryValue = this.query();
     const { page, productsPerPage } = queryValue;
     const startIndex = (page - 1) * productsPerPage;
     return products.slice(startIndex, startIndex + productsPerPage);
   });
 
-  // ✅ Computed Signal for Total Pages
   totalPages = computed(() => {
     const totalProducts = this.filteredProducts().length;
     return Math.ceil(totalProducts / this.query().productsPerPage);
   });
 
-  // ✅ Handle Route Changes
   ngOnInit() {
     effect(() => {
       this.route.params.subscribe(params => {
@@ -83,7 +75,6 @@ export class CategoryPageComponent implements OnInit {
     });
   }
 
-  // ✅ Handle Category Changes
   handleCategoryChange(value: string | null) {
     if (value) {
       this.router.navigate(['/products', value]);
@@ -93,7 +84,6 @@ export class CategoryPageComponent implements OnInit {
     this.query.update(q => ({ ...q, categoryFilter: value }));
   }
 
-  // ✅ Update Query Parameters
   setQuery(update: Partial<{ name: string; minPrice: number | null; maxPrice: number | null; minRating: number | null; categoryFilter: string | null; page: number; productsPerPage: number }>) {
     this.query.update(q => ({ ...q, ...update }));
   }

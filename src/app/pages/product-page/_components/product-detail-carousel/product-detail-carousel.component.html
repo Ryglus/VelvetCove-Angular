@@ -1,0 +1,7 @@
+<div class="carousel" *ngIf="images.length > 0; else noImage">
+  <img [src]="images[0]" alt="Product Image" class="carousel-image">
+</div>
+
+<ng-template #noImage>
+  <div class="no-image">No Image Available</div>
+</ng-template>

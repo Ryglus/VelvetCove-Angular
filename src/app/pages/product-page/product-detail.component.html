@@ -1,43 +1,40 @@
 <app-layout [takeSpace]="true">
   <app-svg-page-bg>
     <div class="container">
-      <!-- Breadcrumb Navigation -->
-      <div class="breadcrumbs">
+      <div class="grid">
+        <div class="carousel">
+          <app-product-detail-carousel [images]="product()?.image ? [product()?.image ?? ''] : []"></app-product-detail-carousel>
+        </div>
+
+        <div class="details">
+          <div class="breadcrumbs">
       <span *ngFor="let breadcrumb of breadcrumbs(); let last = last">
         <a [routerLink]="breadcrumb.path">{{ breadcrumb.label }}</a>
         <span *ngIf="!last"> | </span>
       </span>
-      </div>
-
-      <!-- Product Details -->
-      <div class="grid">
-        <!-- Product Carousel -->
-        <div class="carousel">
-          <app-product-detail-carousel [images]="product()?.image ? [product()?.image] : []"></app-product-detail-carousel>
-        </div>
-
-        <!-- Product Info -->
-        <div class="details">
+          </div>
           <h1>{{ product()?.title }}</h1>
           <p>{{ product()?.description }}</p>
-          <div class="price">${{ product()?.price.toFixed(2) }}</div>
-          <div class="rating">Rating: {{ product()?.rating.rate }} ⭐</div>
+          <div class="price">${{ (product()?.price ?? 0).toFixed(2) }}</div>
+          <div class="rating">Rating: {{ product()?.rating?.rate ?? 'N/A' }} ⭐</div>
 
-          <!-- Quantity Input -->
           <div class="quantity">
             <button (click)="quantity.set(quantity() - 1)" [disabled]="quantity() <= 1">-</button>
-            <input type="number" [(ngModel)]="quantity()" min="1">
+            <input type="number" [(ngModel)]="quantity" min="1">
             <button (click)="quantity.set(quantity() + 1)">+</button>
           </div>
 
-          <!-- Add to Cart -->
           <button (click)="handleAddToCart()">Add to Cart</button>
           <button *ngIf="itemQuantity() > 0" (click)="handleRemoveFromCart()">Remove from Cart</button>
         </div>
       </div>
 
-      <!-- Recommended Products -->
-      <app-product-detail-recommended [category]="product()?.category" [currentProductId]="product()?.id"></app-product-detail-recommended>
+      <ng-container *ngIf="product() as p">
+        <app-product-recommended-section
+          [category]="p.category"
+          [currentProductId]="p.id">
+        </app-product-recommended-section>
+      </ng-container>
     </div>
   </app-svg-page-bg>
 

@@ -4,7 +4,6 @@
 
   <div *ngIf="products$ | async as products">
     <div *ngIf="products.length > 0; else noProducts">
-      <!-- Large Grid -->
       <div *ngIf="size === 'lg'" class="grid lg:grid-cols-2 gap-6">
         <app-product-card *ngIf="products[0]" [product]="products[0]" size="lg"></app-product-card>
         <div class="grid grid-cols-2 gap-4">
@@ -12,12 +11,10 @@
         </div>
       </div>
 
-      <!-- Medium Grid -->
       <div *ngIf="size === 'md'" class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
       </div>
 
-      <!-- Small Grid -->
       <div *ngIf="size === 'sm'" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
       </div>

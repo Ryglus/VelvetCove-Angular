@@ -1,17 +1,11 @@
 <app-layout [takeSpace]="true">
 <app-svg-page-bg>
   <div class="container">
-    <!-- HEADER SECTION -->
     <div class="flex justify-between items-center">
       <h1>PRODUCTS FROM {{ category() ? category() : "ALL CATEGORIES" }}</h1>
-
-
-      <option *ngFor="let option of [3,6,9]" [value]="option">{{ option }} per page</option>
-
     </div>
 
     <div class="grid">
-      <!-- SIDEBAR FILTERS -->
       <div class="sidebar">
         <app-product-filter
           [nameFilter]="query().name"
@@ -29,18 +23,19 @@
         ></app-product-filter>
       </div>
 
-      <!-- PRODUCT LISTING -->
       <div class="content">
         <ng-container *ngIf="paginatedProducts().length > 0; else loading">
           <div class="grid-container grid-cols-3">
             <app-product-card *ngFor="let product of paginatedProducts()" [product]="product"></app-product-card>
           </div>
 
-          <!-- PAGINATION CONTROLS -->
-
+          <app-pagination
+            [totalPages]="totalPages()"
+            [currentPage]="query().page"
+            (pageChange)="setQuery({ page: $event })">
+          </app-pagination>
         </ng-container>
 
-        <!-- LOADING STATE -->
         <ng-template #loading>
           <div class="loading">Loading products...</div>
         </ng-template>

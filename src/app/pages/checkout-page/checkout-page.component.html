@@ -1,0 +1,55 @@
+<app-layout [takeSpace]="true">
+  <app-svg-page-bg>
+    <div class="checkout-container">
+      <h1 class="checkout-title">Checkout</h1>
+
+      <div class="checkout-grid">
+        <div class="checkout-details">
+          <h2>Billing & Shipping Information</h2>
+          <form (ngSubmit)="handleCheckout()">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" [(ngModel)]="checkoutForm.fullName" name="fullname" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" [(ngModel)]="checkoutForm.email" name="email" required />
+
+            <label for="address">Address</label>
+            <input type="text" id="address" [(ngModel)]="checkoutForm.address" name="address" required />
+
+            <label for="city">City</label>
+            <input type="text" id="city" [(ngModel)]="checkoutForm.city" name="city" required />
+
+            <label for="postal">Postal Code</label>
+            <input type="text" id="postal" [(ngModel)]="checkoutForm.postalCode" name="postal" required />
+
+            <label for="country">Country</label>
+            <select id="country" [(ngModel)]="checkoutForm.country" name="country" required>
+              <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+            </select>
+
+            <h3>Payment Method</h3>
+            <div class="payment-options">
+              <label>
+                <input type="radio" name="payment" [(ngModel)]="checkoutForm.paymentMethod" value="paypal" required />
+                PayPal
+              </label>
+              <label>
+                <input type="radio" name="payment" [(ngModel)]="checkoutForm.paymentMethod" value="credit" required />
+                Credit Card
+              </label>
+              <label>
+                <input type="radio" name="payment" [(ngModel)]="checkoutForm.paymentMethod" value="applepay" required />
+                Apple Pay
+              </label>
+            </div>
+
+            <button type="submit" class="checkout-button">Complete Order</button>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+
+  </app-svg-page-bg>
+</app-layout>

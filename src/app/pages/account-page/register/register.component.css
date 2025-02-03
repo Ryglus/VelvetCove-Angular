@@ -1,0 +1,109 @@
+.container {
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.box {
+  background: var(--mantine-color-bg);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.title {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.group {
+  display: flex;
+  gap: 15px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input-container label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  text-align: left;
+  color: white;
+}
+
+.input-container input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid white;
+  border-radius: 5px;
+  transition: border 0.3s ease;
+}
+
+.input-container input:focus {
+  border-color: white;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: #362542;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: var(--mantine-color-primary-hover);
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.outline-button {
+  display: block;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.outline-button:hover {
+  background: white;
+}
+
+@media (max-width: 480px) {
+  .group {
+    flex-direction: column;
+  }
+}

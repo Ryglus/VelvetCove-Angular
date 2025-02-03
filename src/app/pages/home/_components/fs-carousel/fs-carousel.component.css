@@ -1,4 +1,3 @@
-/* Carousel Container */
 .carousel {
   position: relative;
   width: 100%;
@@ -9,14 +8,12 @@
   justify-content: center;
 }
 
-/* Slide Wrapper */
 .carousel-inner {
   display: flex;
-  width: 300%; /* 100% * number of slides */
+  width: 300%;
   transition: transform 0.5s ease-out;
 }
 
-/* Slide Item */
 .carousel-item {
   flex: 1 0 100%;
   position: relative;
@@ -24,10 +21,12 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
 }
 
-/* Background Image (Covers Full Slide) */
 .carousel-item::before {
   content: "";
   position: absolute;
@@ -35,13 +34,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   z-index: -1;
 }
 
-/* Caption Overlay */
 .carousel-caption {
   position: absolute;
   top: 50%;
@@ -55,19 +50,16 @@
   width: 80%;
 }
 
-/* Title */
 .carousel-caption h3 {
   font-size: 48px;
   font-weight: bold;
 }
 
-/* Subtitle */
 .carousel-caption p {
   font-size: 18px;
   color: #c0c7d8;
 }
 
-/* Navigation Buttons */
 .carousel-btn {
   position: absolute;
   top: 50%;

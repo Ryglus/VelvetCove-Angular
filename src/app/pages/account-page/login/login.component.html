@@ -1,0 +1,38 @@
+<app-layout [takeSpace]="true">
+  <app-svg-page-bg>
+    <div class="login-container">
+      <div class="login-box">
+        <h2>Login</h2>
+
+        <form [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+          <mat-form-field class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" placeholder="Enter your username" required />
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" formControlName="password" placeholder="Enter your password" required />
+          </mat-form-field>
+
+          <button mat-raised-button color="primary" class="full-width" [disabled]="isLoading">
+            {{ isLoading ? 'Logging in...' : 'Login' }}
+          </button>
+        </form>
+
+        <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+        <mat-divider></mat-divider>
+
+        <div class="action-buttons">
+          <button mat-stroked-button routerLink="/account/forgot-password">Forgot Password?</button>
+          <button mat-stroked-button routerLink="/account/register">Create an Account</button>
+        </div>
+
+        <button mat-button color="warn" class="full-width" routerLink="/dashboard">
+          Go to Admin
+        </button>
+      </div>
+    </div>
+  </app-svg-page-bg>
+</app-layout>

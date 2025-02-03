@@ -1,0 +1,65 @@
+<app-layout [takeSpace]="true">
+  <app-svg-page-bg>
+    <div class="container">
+      <div *ngIf="items().length === 0" class="empty-cart">
+        <h1>Your Cart is Empty</h1>
+        <p>
+          It looks like you haven't added anything to your cart yet. Start shopping and find something you love.
+        </p>
+        <a routerLink="/products" class="button">Continue Shopping</a>
+        <app-product-recommended-section title="Recommended for you" category="jewelery"></app-product-recommended-section>
+      </div>
+
+      <div *ngIf="items().length > 0">
+        <div class="cart-header">
+          <h1>Shopping Cart</h1>
+          <button class="button danger" (click)="clearCart()">Clear Cart</button>
+        </div>
+        <hr />
+
+        <div class="cart-grid">
+          <div class="cart-items">
+            <div *ngFor="let item of items(); trackBy: trackByProductId">
+              <app-product-incart-card [product]="item.product" [quantity]="item.quantity"></app-product-incart-card>
+              <hr />
+            </div>
+            <a routerLink="/products" class="button">Back to shopping</a>
+          </div>
+
+          <div class="order-summary">
+            <h3>Order Summary</h3>
+            <hr />
+            <p>Qty: {{ items().length }}</p>
+            <p>Shipping: TBD</p>
+            <hr />
+            <p class="total">Total: ${{ totalPrice().toFixed(2) }}</p>
+            <hr />
+
+            <div class="promo">
+              <p><strong>Have a promo code?</strong></p>
+              <div class="input-group">
+
+                <input type="text" [(ngModel)]="promoCode">
+                <button class="button outline" (click)="handleApplyPromo()">Apply</button>
+              </div>
+            </div>
+
+            <hr />
+            <a routerLink="/checkout" class="button primary full-width">Checkout</a>
+            <p class="terms">
+              By continuing, you agree to our
+              <a routerLink="/terms">Terms of Service</a> and
+              <a routerLink="/privacy-policy">Privacy Policy</a>.
+            </p>
+
+            <hr />
+            <p>or use other checkout methods</p>
+            <hr />
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-svg-page-bg>
+
+</app-layout>
